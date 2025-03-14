@@ -7,9 +7,9 @@ const RegisterStudent = () => {
 
   const handleRegister = async () => {
     try {
-      const registerOptions = await axios.get("http://localhost:5000/api/webauthn/register-options");
+      const registerOptions = await axios.get("https://attandencesystembackend.onrender.com/api/webauthn/register-options");
       const registerResp = await startRegistration(registerOptions.data);
-      await axios.post("http://localhost:5000/api/students/register", { name, credential: registerResp });
+      await axios.post("https://attandencesystembackend.onrender.com/api/students/register", { name, credential: registerResp });
       alert(`${name} registered successfully!`);
     } catch (error) {
       console.error("Registration Error:", error);
